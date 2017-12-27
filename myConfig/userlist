@@ -26,8 +26,6 @@ address=/f2.market.xiaomi.com/127.0.0.1
 address=/f3.market.xiaomi.com/127.0.0.1
 address=/f4.market.xiaomi.com/127.0.0.1
 address=/f5.market.xiaomi.com/127.0.0.1
-address=/ad.doubleclick.net/127.0.0.1
-address=/v.admaster.com.cn/127.0.0.1
 address=/f1.market.mi-img.com/127.0.0.1
 address=/f2.market.mi-img.com/127.0.0.1
 address=/f3.market.mi-img.com/127.0.0.1
@@ -35,11 +33,27 @@ address=/f4.market.mi-img.com/127.0.0.1
 address=/f5.market.mi-img.com/127.0.0.1
 address=/g.dtv.cn.miaozhan.com/127.0.0.1
 address=/new.api.ad.xiaomi.com/127.0.0.1
+address=/auth.api.gitv.tv/127.0.0.1
+address=/misc.pandora.xiaomi.com/127.0.0.1
+address=/tvapi.kuyun.com/127.0.0.1
+address=/tv.aiseet.atianqi.com/127.0.0.1
+address=/vv.play.aiseet.atianqi.com/127.0.0.1
+address=/alog.umeng.com/127.0.0.1
+address=/pandora.mi.com/127.0.0.1
+address=/assistant.pandora.xiaomi.com/127.0.0.1
+address=/tracking.miui.com/127.0.0.1
+address=/omgmta.play.aiseet.atianqi.com/127.0.0.1
+address=/starfish.pandora.xiaomi.com/127.0.0.1
+address=/misc.in.duokanbox.com/127.0.0.1
 
 # GITV 相關
-# address=/msga.ptqy.gitv.tv/127.0.0.1
-# address=/msg.ptqy.gitv.tv/127.0.0.1
-# address=/auth.api.gitv.tv/127.0.0.1
-# address=/appstore.ptmi.gitv.tv/127.0.0.1
-# address=/upgrade.ptmi.gitv.tv/127.0.0.1
+address=/msga.ptqy.gitv.tv/127.0.0.1
+address=/msg.ptqy.gitv.tv/127.0.0.1
+address=/auth.api.gitv.tv/127.0.0.1
+address=/appstore.ptmi.gitv.tv/127.0.0.1
+address=/upgrade.ptmi.gitv.tv/127.0.0.1
 # address=/weatherapi.market.xiaomi.com/127.0.0.1
+
+# 一般AD
+address=/ad.doubleclick.net/127.0.0.1
+address=/v.admaster.com.cn/127.0.0.1
