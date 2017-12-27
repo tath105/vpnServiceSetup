@@ -36,3 +36,4 @@ address=/image.cdn.pandora.xiaomi.com/127.0.0.1
 address=/resolver.msg.xiaomi.net/127.0.0.1
 address=/resolver.gslb.mi-idc.com/127.0.0.1
 address=/rts.mobula.sdk.duapps.com/127.0.0.1
+address=/box.pandora.xiaomi.com/127.0.0.1
