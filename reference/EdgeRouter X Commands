@@ -4,6 +4,7 @@ set service dns forwarding options server=/youtube.com/8.8.8.8
 set service dns forwarding options conf-dir=/etc/dnsmasq.d
 set system name-server 127.0.0.1
 set service dns forwarding name-server 8.8.8.8
+set service dns forwarding cache-size 10000
 set service dns forwarding options conf-dir=/etc/dnsmasq.d/,*.conf
 delete service dns forwarding options conf-dir=/etc/dnsmasq.d
 
@@ -25,7 +26,7 @@ conf-dir=/etc/dnsmasq.d/,*.conf
 
 
 configure
-delete service dns forwarding options conf-dir=/etc/dnsmasq.d/,*.conf
+delete system name-server 8.8.8.8
 show service dns forwarding options
 
 commit
@@ -39,4 +40,4 @@ rm -rf /tmp/dnsmasq.conf
 
 sudo /etc/init.d/dnsmasq restart
 
-sudo /etc/init.d/shadowsocks start
+sudo /etc/init.d/shadowsocks restart
