@@ -25,8 +25,8 @@ cat /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 > /tmp/adaway.conf
 rm -rf /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 #/tmp/adaway5
 echo
 sleep 3
-echo -e "\e[1;36m 创建用户自定规则缓存\e[0m"
-cp /etc/dnsmasq.d/userlist /tmp/userlist
+echo -e "\e[1;36m 下载用户自定规则缓存\e[0m"
+wget --no-check-certificate -q -O /tmp/userlist https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userlist
 echo
 echo -e "\e[1;36m 创建广告黑名单缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
