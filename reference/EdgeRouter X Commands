@@ -4,6 +4,9 @@ set service dns forwarding options server=/youtube.com/8.8.8.8
 set service dns forwarding options conf-dir=/etc/dnsmasq.d
 set system name-server 127.0.0.1
 set service dns forwarding name-server 8.8.8.8
+set service dns forwarding options conf-dir=/etc/dnsmasq.d/,*.conf
+delete service dns forwarding options conf-dir=/etc/dnsmasq.d
+
 commit
 save
 exit
@@ -17,3 +20,23 @@ Reference:
 http://allenn.cn/articles/2016-10/2016-10-20-edgemax-ss-tutorial/
 http://wppurking.github.io/2012/10/01/li-yong-dnsmasq-da-jian-zi-ji-de-dns-fu-wu-qi.html
 http://www.yunweipai.com/archives/21273.html
+
+conf-dir=/etc/dnsmasq.d/,*.conf
+
+
+configure
+delete service dns forwarding options conf-dir=/etc/dnsmasq.d/,*.conf
+show service dns forwarding options
+
+commit
+save
+exit
+
+vi /etc/dnsmasq.conf
+cp /etc/dnsmasq.conf /tmp/dnsmasq.conf
+cat //tmp/dnsmasq.conf /etc/dnsmasq.d/ad.conf > /etc/dnsmasq.conf 
+rm -rf /tmp/dnsmasq.conf
+
+sudo /etc/init.d/dnsmasq restart
+
+sudo /etc/init.d/shadowsocks start
