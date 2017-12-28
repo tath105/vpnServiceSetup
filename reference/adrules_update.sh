@@ -1,7 +1,7 @@
 #!/bin/sh
 echo
 echo "=============================================="
-echo "= AD (dnsmasq / hosts) Updater | Ted V1.2    ="
+echo "= AD (dnsmasq / hosts) Updater | Ted V1.3    ="
 echo "=============================================="
 sleep 3
 echo " 开始更新dnsmasq规则"
@@ -49,7 +49,7 @@ cat /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 > /tmp/adaway.conf
 rm -rf /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4   #/tmp/adaway5
 echo
 echo -e "\e[1;36m 合并hosts缓存\e[0m"
-cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist  /tmp/StevenBlack  > /tmp/noad
+cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack  > /tmp/noad
 echo
 echo -e "\e[1;36m 删除dnsmasq、hosts临时文件\e[0m"
 rm -rf /tmp/blacklist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack
