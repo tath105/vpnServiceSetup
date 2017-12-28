@@ -42,7 +42,7 @@ echo -e "\e[1;36m 下载yhosts规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/yhosts.conf https://raw.githubusercontent.com/vokins/yhosts/master/hosts.txt
 echo
 echo -e "\e[1;36m 下载StevenBlack规则缓存\\e[0m"
-wget --no-check-certificate -q -O /tmp/StevenBlack https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts
+wget --no-check-certificate -q -O /tmp/StevenBlack https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts
 echo
 echo -e "\e[1;36m 下载malwaredomainlist规则\e[0m"
 wget --no-check-certificate -q -O /tmp/mallist http://www.malwaredomainlist.com/hostslist/hosts.txt && sed -i "s/.$//g" /tmp/mallist

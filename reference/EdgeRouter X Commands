@@ -47,3 +47,4 @@ rm -rf /opt/adrules_update.sh
 wget --no-check-certificate -q -O /opt/adrules_update.sh https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/reference/adrules_update.sh
 chmod +x /opt/adrules_update.sh
 /opt/adrules_update.sh
+echo "DONE"
