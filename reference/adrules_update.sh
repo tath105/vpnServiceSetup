@@ -4,7 +4,9 @@ echo "=============================================="
 echo "= AD (dnsmasq / hosts) Updater | Ted V1.3    ="
 echo "=============================================="
 sleep 3
+echo "=============================================="
 echo " 开始更新dnsmasq规则"
+echo "=============================================="
 echo
 echo -e "\e[1;36m 下载vokins广告规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/ad.conf https://raw.githubusercontent.com/vokins/yhosts/master/dnsmasq/union.conf
@@ -28,6 +30,11 @@ sed -i '/./{s|^|address=/|;s|$|/127.0.0.1|}' /tmp/blacklist #改为dnsmasq方式
 echo -e "\e[1;36m 合并dnsmasq\e[0m"
 cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
 
+
+
+echo "=============================================="
+echo " 开始更新Hosts规则"
+echo "=============================================="
 #Start Working on the list of Host Files
 echo
 echo -e "\e[1;36m 下载yhosts规则缓存\e[0m"
@@ -49,12 +56,12 @@ cat /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 > /tmp/adaway.conf
 rm -rf /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4   #/tmp/adaway5
 echo
 echo -e "\e[1;36m 合并hosts缓存\e[0m"
-cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack  > /tmp/noad
+cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack > /tmp/noad
 echo
 echo -e "\e[1;36m 删除dnsmasq、hosts临时文件\e[0m"
 rm -rf /tmp/blacklist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack
 echo
-echo -e "\e[1;36m 删除被误杀的广告规则\e[0m"
+echo -e "\e[1;36m 删除被误杀的广告规则 (根據WhiteList) \e[0m"
 wget --no-check-certificate -q -O /tmp/adwhitelist https://raw.githubusercontent.com/clion007/dnsmasq/master/adwhitelist
 wget --no-check-certificate -q -O /tmp/userWhiteList https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userWhiteList
 sort /tmp/adwhitelist /tmp/userWhiteList | uniq > /tmp/whitelist
@@ -62,6 +69,7 @@ sed -i "/#/d" /tmp/whitelist
 rm -rf /tmp/adwhitelist /tmp/userWhiteList
 while read -r line
 do
+	echo "允計 $line"
 	sed -i "/$line/d" /tmp/noad
 	sed -i "/$line/d" /tmp/ad
 done < /tmp/whitelist
