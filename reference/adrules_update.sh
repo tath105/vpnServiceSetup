@@ -1,7 +1,7 @@
 #!/bin/sh
 echo
 echo "=============================================="
-echo "= AD (dnsmasq / hosts) Updater | Ted V1.3    ="
+echo "= AD (dnsmasq / hosts) Updater | Ted V1.4    ="
 echo "=============================================="
 sleep 3
 echo "=============================================="
