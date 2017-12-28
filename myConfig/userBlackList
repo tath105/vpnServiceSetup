@@ -55,8 +55,74 @@ address=/msg.ptqy.gitv.tv/127.0.0.1
 address=/appstore.ptmi.gitv.tv/127.0.0.1
 address=/upgrade.ptmi.gitv.tv/127.0.0.1
 
-# VMUS.CO
+
+#block Mackeeper  
+address=/apple.com-webbrowsing-security.bid/127.0.0.1
+address=/apple.com-webbrowsing-security.review/127.0.0.1
+address=/apple.com-webbrowsing-security.site/127.0.0.1
+address=/apple.com-traffic-securityanalysis.download/127.0.0.1
+address=/apple.com-cyber-security-review.download/127.0.0.1
+address=/apple-mac.pro/127.0.0.1
+address=/app1.letmacwork.world/127.0.0.1
+address=/app4.letmacwork.world/127.0.0.1
+address=/app4.letitbefaster.life/127.0.0.1
+address=/app3.letmacwork.world/127.0.0.1
 address=/applyfix.tech/127.0.0.1
+address=/app2.letslowbefast.today/127.0.0.1
+address=/app2.letmacwork.world/127.0.0.1
+address=/app2.letmacwork.website/127.0.0.1
+address=/appfixing.space/127.0.0.1
+address=/slowmacfaster.trade/127.0.0.1
+address=/securefastmac.space/127.0.0.1
+address=/macdamaged.tech/127.0.0.1
+address=/macsecurer.com/127.0.0.1
+address=/fastfixing.tech/127.0.0.1
+address=/fast-mac-upp.com/127.0.0.1
+address=/mackeeper.com/127.0.0.1
+address=/nofreezingmac.work/127.0.0.1
+
+#fake Media Player
+address=/uoy.macnewtech.com/127.0.0.1
+
+# Ted Experience
+address=/.rapidvideo.com/0.0.0.0
+address=/.db14a56766c5e1a1c2.com/0.0.0.0
+address=/.greatmacsoft.pro/0.0.0.0
+address=/.h6y654wgfdhd.com/0.0.0.0
+address=/.mmoframes.com/0.0.0.0
+address=/.resetamobil.com/0.0.0.0
+address=/.trackclickers.com/0.0.0.0
+address=/.lie2anyone.com/0.0.0.0
+address=/.higheurest.com/0.0.0.0
+address=/.buzzadnetwork.com/0.0.0.0
+address=/.popads.net/0.0.0.0
+address=/.absoluteclickscom.com/0.0.0.0
+address=/.v3rjvtt.com/0.0.0.0
+address=/.apple.com-store.in/0.0.0.0
+address=/.engine.spotscenered.info/0.0.0.0
+address=/.prestoris.com/0.0.0.0
+address=/.spotscenered.info/0.0.0.0
+address=/.trackingclick.net/0.0.0.0
+address=/.toponclick.com/0.0.0.0
+address=/.macfixingsoftware.space/0.0.0.0
+address=/.onclkds.com/0.0.0.0
+address=/.onclickpredictiv.com/0.0.0.0
+address=/.macleaner.work/0.0.0.0
+address=/.terraclicks.com/0.0.0.0
+address=/.thevideo.me/0.0.0.0
+address=/.just4single.com/0.0.0.0
+address=/.serve.popads.net/0.0.0.0
+address=/.mac.clipony.com/0.0.0.0
+address=/.javhd.com/0.0.0.0
+address=/.apple.com-authorised.online/0.0.0.0
+address=/.appless.store/0.0.0.0
+address=/.rumorsleague.com/0.0.0.0
+address=/.mackeeper.com/0.0.0.0
+address=/.wct.click/0.0.0.0
+address=/.adv.videomega.tv/0.0.0.0
+address=/.cleaningformac.com/0.0.0.0
+address=/.live173.com/0.0.0.0
+address=/.onclickads.net/0.0.0.0
 
 # 一般AD
 address=/ad.doubleclick.net/127.0.0.1
