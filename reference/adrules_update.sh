@@ -1,7 +1,7 @@
 #!/bin/sh
 echo
 echo "=============================================="
-echo "= AD (dnsmasq / hosts) Updater | Ted V1.1    ="
+echo "= AD (dnsmasq / hosts) Updater | Ted V1.2    ="
 echo "=============================================="
 sleep 3
 echo " 开始更新dnsmasq规则"
@@ -20,7 +20,7 @@ echo -e "\e[1;36m 下载广告黑名单规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
 echo
 echo -e "\e[1;36m 合併 用户自定黑名单规则缓存 及 广告黑名单规则缓存\e[0m"
-sort /tmp/adblacklist /tmp/userBlackList| uniq > /tmp/blacklist
+sort /tmp/adblacklist /tmp/userBlackList | uniq > /tmp/blacklist
 rm -rf /tmp/adblacklist /tmp/userBlackList
 sed -i "/#/d" /tmp/blacklist
 #sed -i 's/^/127.0.0.1 &/g' /tmp/blacklist #hosts方式，不支持通配符
