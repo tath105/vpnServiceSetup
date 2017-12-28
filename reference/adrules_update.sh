@@ -1,25 +1,25 @@
 #!/bin/sh
 echo
 echo "=============================================="
-echo "= AD (dnsmasq / hosts) Updater | Ted V1.0    ="
+echo "= AD (dnsmasq / hosts) Updater | Ted V1.1    ="
 echo "=============================================="
 sleep 3
 echo " 开始更新dnsmasq规则"
 echo
-echo -e "\e[1;36m 下载vokins广告规则\e[0m"
+echo -e "\e[1;36m 下载vokins广告规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/ad.conf https://raw.githubusercontent.com/vokins/yhosts/master/dnsmasq/union.conf
 echo
-echo -e "\e[1;36m 下载easylistchina广告规则\e[0m"
+echo -e "\e[1;36m 下载easylistchina广告规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/easylistchina.conf https://c.nnjsx.cn/GL/dnsmasq/update/adblock/easylistchina.txt
 echo
 sleep 3
-echo -e "\e[1;36m 下载用户自定黑名单缓存\e[0m"
+echo -e "\e[1;36m 下载用户自定黑名单规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/userBlackList https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userBlackList
 echo
-echo -e "\e[1;36m 下载广告黑名单缓存\e[0m"
+echo -e "\e[1;36m 下载广告黑名单规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
 echo
-echo -e "\e[1;36m 合併 用户自定黑名单缓存 及 广告黑名单缓存\e[0m"
+echo -e "\e[1;36m 合併 用户自定黑名单规则缓存 及 广告黑名单规则缓存\e[0m"
 sort /tmp/adblacklist /tmp/userBlackList| uniq > /tmp/blacklist
 rm -rf /tmp/adblacklist /tmp/userBlackList
 sed -i "/#/d" /tmp/blacklist
@@ -30,10 +30,10 @@ cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
 
 #Start Working on the list of Host Files
 echo
-echo -e "\e[1;36m 下载yhosts缓存\e[0m"
+echo -e "\e[1;36m 下载yhosts规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/yhosts.conf https://raw.githubusercontent.com/vokins/yhosts/master/hosts.txt
 echo
-echo -e "\e[1;36m StevenBlack\e[0m"
+echo -e "\e[1;36m 下载StevenBlack规则缓存\\e[0m"
 wget --no-check-certificate -q -O /tmp/StevenBlack https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts
 echo
 echo -e "\e[1;36m 下载malwaredomainlist规则\e[0m"
@@ -45,15 +45,14 @@ wget --no-check-certificate -q -O /tmp/adaway2 http://winhelp2002.mvps.org/hosts
 wget --no-check-certificate -q -O /tmp/adaway3 http://77l5b4.com1.z0.glb.clouddn.com/hosts.txt
 wget --no-check-certificate -q -O /tmp/adaway4 https://hosts-file.net/ad_servers.txt && sed -i "s/.$//g" /tmp/adaway4
 #wget --no-check-certificate -q -O /tmp/adaway5 https://pgl.yoyo.org/adservers/serverlist.php?showintro=0;hostformat=hosts
-cat /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 /tmp/StevenBlack > /tmp/adaway.conf
-rm -rf /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 /tmp/StevenBlack  #/tmp/adaway5
+cat /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 > /tmp/adaway.conf
+rm -rf /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4   #/tmp/adaway5
 echo
 echo -e "\e[1;36m 合并hosts缓存\e[0m"
-cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
-cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist > /tmp/noad
+cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist  /tmp/StevenBlack  > /tmp/noad
 echo
 echo -e "\e[1;36m 删除dnsmasq、hosts临时文件\e[0m"
-rm -rf /tmp/blacklist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist
+rm -rf /tmp/blacklist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack
 echo
 echo -e "\e[1;36m 删除被误杀的广告规则\e[0m"
 wget --no-check-certificate -q -O /tmp/adwhitelist https://raw.githubusercontent.com/clion007/dnsmasq/master/adwhitelist
