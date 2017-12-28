@@ -35,9 +35,15 @@ exit
 
 vi /etc/dnsmasq.conf
 cp /etc/dnsmasq.conf /tmp/dnsmasq.conf
-cat //tmp/dnsmasq.conf /etc/dnsmasq.d/ad.conf > /etc/dnsmasq.conf 
-rm -rf /tmp/dnsmasq.conf
+cat //tmp/dnsmasq.conf /etc/dnsmasq.d/ad.conf > /etc/dnsmasq.confrm -rf /tmp/dnsmasq.conf
 
 sudo /etc/init.d/dnsmasq restart
 
 sudo /etc/init.d/shadowsocks restart
+
+--- Updating the Jobs
+sudo su
+rm -rf /opt/adrules_update.sh
+wget --no-check-certificate -q -O /opt/adrules_update.sh https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/reference/adrules_update.sh
+chmod +x /opt/adrules_update.sh
+/opt/adrules_update.sh

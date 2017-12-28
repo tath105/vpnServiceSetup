@@ -9,6 +9,24 @@ echo
 echo -e "\e[1;36m 下载easylistchina广告规则\e[0m"
 wget --no-check-certificate -q -O /tmp/easylistchina.conf https://c.nnjsx.cn/GL/dnsmasq/update/adblock/easylistchina.txt
 echo
+sleep 3
+echo -e "\e[1;36m 下载用户自定黑名单缓存\e[0m"
+wget --no-check-certificate -q -O /tmp/userBlackList https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userBlackList
+echo
+echo -e "\e[1;36m 下载广告黑名单缓存\e[0m"
+wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
+echo
+echo -e "\e[1;36m 合併 用户自定黑名单缓存 及 广告黑名单缓存\e[0m"
+sort /tmp/adblacklist /tmp/userBlackList| uniq > /tmp/blacklist
+rm -rf /tmp/adblacklist /tmp/userBlackList
+sed -i "/#/d" /tmp/blacklist
+#sed -i 's/^/127.0.0.1 &/g' /tmp/blacklist #hosts方式，不支持通配符
+sed -i '/./{s|^|address=/|;s|$|/127.0.0.1|}' /tmp/blacklist #改为dnsmasq方式，支持通配符
+echo -e "\e[1;36m 合并dnsmasq\e[0m"
+cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
+
+#Start Working on the list of Host Files
+echo
 echo -e "\e[1;36m 下载yhosts缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/yhosts.conf https://raw.githubusercontent.com/vokins/yhosts/master/hosts.txt
 echo
@@ -24,31 +42,19 @@ wget --no-check-certificate -q -O /tmp/adaway4 https://hosts-file.net/ad_servers
 cat /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 > /tmp/adaway.conf
 rm -rf /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 #/tmp/adaway5
 echo
-sleep 3
-echo -e "\e[1;36m 下载用户自定规则缓存\e[0m"
-wget --no-check-certificate -q -O /tmp/userlist https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userBlackList
-echo
-echo -e "\e[1;36m 创建广告黑名单缓存\e[0m"
-wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
-sort /etc/dnsmasq/userblacklist /tmp/adblacklist | uniq > /tmp/blacklist
-rm -rf /tmp/adblacklist
-sed -i "/#/d" /tmp/blacklist
-#sed -i 's/^/127.0.0.1 &/g' /tmp/blacklist #hosts方式，不支持通配符
-sed -i '/./{s|^|address=/|;s|$|/127.0.0.1|}' /tmp/blacklist #改为dnsmasq方式，支持通配符
-echo
-echo -e "\e[1;36m 合并dnsmasq、hosts缓存\e[0m"
-cat /tmp/userlist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
+echo -e "\e[1;36m 合并hosts缓存\e[0m"
+cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
 cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist > /tmp/noad
 echo
 echo -e "\e[1;36m 删除dnsmasq、hosts临时文件\e[0m"
-rm -rf /tmp/userlist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist
+rm -rf /tmp/blacklist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist
 echo
 echo -e "\e[1;36m 删除被误杀的广告规则\e[0m"
 wget --no-check-certificate -q -O /tmp/adwhitelist https://raw.githubusercontent.com/clion007/dnsmasq/master/adwhitelist
 wget --no-check-certificate -q -O /tmp/userWhiteList https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userWhiteList
-sort /etc/dnsmasq/userwhitelist /tmp/adwhitelist /tmp/userWhiteList | uniq > /tmp/whitelist
+sort /tmp/adwhitelist /tmp/userWhiteList | uniq > /tmp/whitelist
 sed -i "/#/d" /tmp/whitelist
-rm -rf /tmp/adwhitelist
+rm -rf /tmp/adwhitelist /tmp/userWhiteList
 while read -r line
 do
 	sed -i "/$line/d" /tmp/noad

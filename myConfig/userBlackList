@@ -54,9 +54,14 @@ address=/msga.ptqy.gitv.tv/127.0.0.1
 address=/msg.ptqy.gitv.tv/127.0.0.1
 address=/appstore.ptmi.gitv.tv/127.0.0.1
 address=/upgrade.ptmi.gitv.tv/127.0.0.1
+
+# VMUS.CO
+address=/applyfix.tech/127.0.0.1
+
 # 一般AD
 address=/ad.doubleclick.net/127.0.0.1
 address=/v.admaster.com.cn/127.0.0.1
+
 # TBC
 address=/ad.1111cpc.com/127.0.0.1
 address=/creative.1111cpc.com/127.0.0.1
