@@ -26,7 +26,7 @@ rm -rf /tmp/adaway /tmp/adaway2 /tmp/adaway3 /tmp/adaway4 #/tmp/adaway5
 echo
 sleep 3
 echo -e "\e[1;36m 下载用户自定规则缓存\e[0m"
-wget --no-check-certificate -q -O /tmp/userlist https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userlist
+wget --no-check-certificate -q -O /tmp/userlist https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userBlackList
 echo
 echo -e "\e[1;36m 创建广告黑名单缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
@@ -45,7 +45,8 @@ rm -rf /tmp/userlist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yh
 echo
 echo -e "\e[1;36m 删除被误杀的广告规则\e[0m"
 wget --no-check-certificate -q -O /tmp/adwhitelist https://raw.githubusercontent.com/clion007/dnsmasq/master/adwhitelist
-sort /etc/dnsmasq/userwhitelist /tmp/adwhitelist | uniq > /tmp/whitelist
+wget --no-check-certificate -q -O /tmp/userWhiteList https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userWhiteList
+sort /etc/dnsmasq/userwhitelist /tmp/adwhitelist /tmp/userWhiteList | uniq > /tmp/whitelist
 sed -i "/#/d" /tmp/whitelist
 rm -rf /tmp/adwhitelist
 while read -r line
@@ -101,7 +102,7 @@ echo "
 # 默认hosts开始（想恢复最初状态的hosts，只保留下面两行即可）
 127.0.0.1 localhost
 ::1	localhost
-::1	ip6-localhost
+::1	ip6-localhost˜†
 ::1	ip6-loopback
 # 默认hosts结束
 
