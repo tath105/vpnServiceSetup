@@ -1,5 +1,8 @@
 #!/bin/sh
 echo
+echo "=============================================="
+echo "= AD (dnsmasq / hosts) Updater | Ted V1.0    ="
+echo "=============================================="
 sleep 3
 echo " 开始更新dnsmasq规则"
 echo
