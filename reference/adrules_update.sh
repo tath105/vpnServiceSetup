@@ -27,11 +27,12 @@ rm -rf /tmp/adblacklist /tmp/userBlackList
 sed -i "/#/d" /tmp/blacklist
 #sed -i 's/^/127.0.0.1 &/g' /tmp/blacklist #hosts方式，不支持通配符
 sed -i '/./{s|^|address=/|;s|$|/127.0.0.1|}' /tmp/blacklist #改为dnsmasq方式，支持通配符
+echo
 echo -e "\e[1;36m 合并dnsmasq\e[0m"
 cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
 
 
-
+echo
 echo "=============================================="
 echo " 开始更新Hosts规则"
 echo "=============================================="
@@ -58,6 +59,10 @@ echo
 echo -e "\e[1;36m 合并hosts缓存\e[0m"
 cat /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack > /tmp/noad
 echo
+echo "=============================================="
+echo " 檢查白名單"
+echo "=============================================="
+echo
 echo -e "\e[1;36m 删除dnsmasq、hosts临时文件\e[0m"
 rm -rf /tmp/blacklist /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist /tmp/yhosts.conf /tmp/adaway.conf /tmp/mallist /tmp/StevenBlack
 echo
@@ -74,6 +79,10 @@ do
 	sed -i "/$line/d" /tmp/ad
 done < /tmp/whitelist
 rm -rf /tmp/whitelist
+echo
+echo "=============================================="
+echo " 最後整理"
+echo "=============================================="
 echo
 echo -e "\e[1;36m 删除注释和本地规则\e[0m"
 sed -i '/::1/d' /tmp/ad
