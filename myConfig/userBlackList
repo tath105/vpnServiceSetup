@@ -48,6 +48,7 @@ address=/misc.in.duokanbox.com/127.0.0.1
 address=/cdn.ad.xiaomi.com/127.0.0.1
 address=/e.ad.xiaomi.com/127.0.0.1
 address=/test.ad.xiaomi.com/127.0.0.1
+address=/mishop.cdn.pandora.xiaomi.com/127.0.0.1
 
 # GITV 相關
 address=/msga.ptqy.gitv.tv/127.0.0.1

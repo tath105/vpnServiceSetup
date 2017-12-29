@@ -39,12 +39,11 @@ cat //tmp/dnsmasq.conf /etc/dnsmasq.d/ad.conf > /etc/dnsmasq.confrm -rf /tmp/dns
 
 sudo /etc/init.d/dnsmasq restart
 
-sudo /etc/init.d/shadowsocks restart
-
---- Updating the Jobs
-sudo su
+sudo /etc/init.d/shadowsocks restartsudo su
 rm -rf /opt/adrules_update.sh
 wget --no-check-certificate -q -O /opt/adrules_update.sh https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/reference/adrules_update.sh
 chmod +x /opt/adrules_update.sh
 /opt/adrules_update.sh
 echo "DONE"
+
+--- Updating the Jobs
