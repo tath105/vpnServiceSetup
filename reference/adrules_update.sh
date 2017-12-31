@@ -22,14 +22,14 @@ echo -e "\e[1;36m 下载广告黑名单规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
 echo
 echo -e "\e[1;36m 合併 用户自定黑名单规则缓存 及 广告黑名单规则缓存\e[0m"
-sort /tmp/adblacklist /tmp/userBlackList | uniq > /tmp/blacklist
-rm -rf /tmp/adblacklist /tmp/userBlackList
+sort /tmp/adblacklist | uniq > /tmp/blacklist
+rm -rf /tmp/adblacklist
 sed -i "/#/d" /tmp/blacklist
 #sed -i 's/^/127.0.0.1 &/g' /tmp/blacklist #hosts方式，不支持通配符
 sed -i '/./{s|^|address=/|;s|$|/127.0.0.1|}' /tmp/blacklist #改为dnsmasq方式，支持通配符
 echo
 echo -e "\e[1;36m 合并dnsmasq\e[0m"
-cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/blacklist > /tmp/ad
+cat /tmp/ad.conf /tmp/easylistchina.conf /tmp/userBlackList /tmp/blacklist > /tmp/ad
 
 
 echo
