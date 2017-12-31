@@ -49,14 +49,16 @@ address=/cdn.ad.xiaomi.com/127.0.0.1
 address=/e.ad.xiaomi.com/127.0.0.1
 address=/test.ad.xiaomi.com/127.0.0.1
 address=/mishop.cdn.pandora.xiaomi.com/127.0.0.1
+address=/box.pandora.xiaomi.com/127.0.0.1
+address=/v.admaster.com.cn/127.0.0.1
+address=/3gimg.qq.com/127.0.0.1
+address=/resolver.msg.xiaomi.net/127.0.0.1
 
 # GITV 相關
 address=/msga.ptqy.gitv.tv/127.0.0.1
 address=/msg.ptqy.gitv.tv/127.0.0.1
 address=/appstore.ptmi.gitv.tv/127.0.0.1
 address=/upgrade.ptmi.gitv.tv/127.0.0.1
-
-
 #block Mackeeper 
 address=/macdamaged.space/127.0.0.1
 address=/macgatekeeper.com/127.0.0.1
@@ -89,7 +91,6 @@ address=/fastfixing.tech/127.0.0.1
 address=/fast-mac-upp.com/127.0.0.1
 address=/mackeeper.com/127.0.0.1
 address=/nofreezingmac.work/127.0.0.1
-
 # AD Forwarding
 address=/pascal5.science/127.0.0.1
 address=/potedly.co/127.0.0.1
@@ -142,7 +143,6 @@ address=/aivae2o.top/127.0.0.1
 address=/aive3bi.bid/127.0.0.1
 address=/aiw1ohz.top/127.0.0.1
 address=/aj2shil.bid/127.0.0.1
-address=/ajkzd9h.com/127.0.0.1
 address=/alwqfajh.com/127.0.0.1
 address=/aoy2nor.top/127.0.0.1
 address=/aoz9ied.bid/127.0.0.1
@@ -220,7 +220,6 @@ address=/faeph6ax.com/127.0.0.1
 address=/fe7ooni.top/127.0.0.1
 address=/foh6bah.top/127.0.0.1
 address=/g1hmcmp.com/127.0.0.1
-address=/g22rbb7.com/127.0.0.1
 address=/g5fzq2l.com/127.0.0.1
 address=/gai9h7.top/127.0.0.1
 address=/gb0rd.com/127.0.0.1
@@ -233,7 +232,6 @@ address=/goo4anywhere.com/127.0.0.1
 address=/gp0hefr.com/127.0.0.1
 address=/gri98.com/127.0.0.1
 address=/gwudu.com/127.0.0.1
-address=/h8vzwpv.com/127.0.0.1
 address=/h92ir5s.com/127.0.0.1
 address=/ha8ohfi.top/127.0.0.1
 address=/hahpe0o.top/127.0.0.1
@@ -312,7 +310,6 @@ address=/nah6igo.bid/127.0.0.1
 address=/nah8eje.top/127.0.0.1
 address=/ndbfav.top/127.0.0.1
 address=/nepalhtml.com/127.0.0.1
-address=/newadsclicks.com/127.0.0.1
 address=/newcustomads.com/127.0.0.1
 address=/nlwy0.com/127.0.0.1
 address=/o4nf2970.com/127.0.0.1
@@ -507,13 +504,10 @@ address=/zooh1od.top/127.0.0.1
 address=/ww1.vidzi.tv/127.0.0.1
 address=/ww2.vidzi.tv/127.0.0.1
 address=/ww3.vidzi.tv/127.0.0.1
-
 # fraud likely
 address=/sanghaniexports.com/127.0.0.1
-
 # fake Media Player
 address=/uoy.macnewtech.com/127.0.0.1
-
 # Ted Experience
 address=/.rapidvideo.com/0.0.0.0
 address=/.db14a56766c5e1a1c2.com/0.0.0.0
@@ -553,11 +547,8 @@ address=/.adv.videomega.tv/0.0.0.0
 address=/.cleaningformac.com/0.0.0.0
 address=/.live173.com/0.0.0.0
 address=/.onclickads.net/0.0.0.0
-
 # 一般AD
 address=/ad.doubleclick.net/127.0.0.1
-address=/v.admaster.com.cn/127.0.0.1
-
 # TBC
 address=/ad.1111cpc.com/127.0.0.1
 address=/creative.1111cpc.com/127.0.0.1
@@ -1126,7 +1117,6 @@ address=/pic.fengniao.com/127.0.0.1
 address=/stat.fengniao.com/127.0.0.1
 address=/js.fengniao.com/127.0.0.1
 address=/a.fhxcy.com/127.0.0.1
-address=/finead.cn/127.0.0.1
 address=/adv.fjtv.net/127.0.0.1
 address=/ad.flipboard.com/127.0.0.1
 address=/adlog.flurry.com/127.0.0.1
@@ -1549,7 +1539,6 @@ address=/pvlog.moviebox.baofeng.net/127.0.0.1
 address=/ads.mp.mydas.mobi/127.0.0.1
 address=/zymo.mps.weibo.com/127.0.0.1
 address=/td.mpush.cn/127.0.0.1
-address=/resolver.msg.xiaomi.net/127.0.0.1
 address=/js.mumayi.net/127.0.0.1
 address=/keystone.mwbsys.com/127.0.0.1
 address=/cop.my.xunlei.com/127.0.0.1
