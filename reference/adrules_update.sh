@@ -1,7 +1,7 @@
 #!/bin/sh
 echo
 echo "=============================================="
-echo "= AD (dnsmasq / hosts) Updater | Ted V1.5    ="
+echo "= AD (dnsmasq / hosts) Updater | Ted V1.6.1  ="
 echo "=============================================="
 sleep 3
 echo "=============================================="
@@ -14,14 +14,13 @@ echo
 echo -e "\e[1;36m 下载easylistchina广告规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/easylistchina.conf https://c.nnjsx.cn/GL/dnsmasq/update/adblock/easylistchina.txt
 echo
-sleep 3
 echo -e "\e[1;36m 下载用户自定黑名单规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/userBlackList https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/myConfig/userBlackList
 echo
 echo -e "\e[1;36m 下载广告黑名单规则缓存\e[0m"
 wget --no-check-certificate -q -O /tmp/adblacklist https://raw.githubusercontent.com/clion007/dnsmasq/master/adblacklist
 echo
-echo -e "\e[1;36m 合併 用户自定黑名单规则缓存 及 广告黑名单规则缓存\e[0m"
+echo -e "\e[1;36m 合併 整理 广告黑名单规则缓存\e[0m"
 sort /tmp/adblacklist | uniq > /tmp/blacklist
 rm -rf /tmp/adblacklist
 sed -i "/#/d" /tmp/blacklist
