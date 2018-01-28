@@ -1,0 +1,73 @@
+python /usr/local/shadowsocksr/shadowsocks/server.py -p 500 -k Teddy97657585 -m aes-256-cfb -O auth_sha1_v4 -o http_simple
+
+
+Step by Step Install Guide
+sudo hostname -b localhost
+nano /etc/hostname
+/etc/init.d/hostname.sh start
+apt-get install git
+sudo apt-get install software-properties-common
+sudo apt-add-repository universe
+sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install python-m2crypto
+sudo apt-get install build-essential
+sudo apt install python3
+sudo apt install python-minimal
+git clone -b manyuser https://github.com/shadowsocksr-backup/shadowsocksr.git
+mv shadowsocksr /usr/local/
+cd /usr/local
+
+python /usr/local/shadowsocksr/shadowsocks/server.py -p 80 -k Teddy97657585 -m aes-256-cfb -O auth_sha1_v4 -o http_simple
+python /usr/local/shadowsocksr/shadowsocks/server.py -c /usr/local/shadowsocksr/user-config.json
+nano /usr/local/shadowsocksr/user-config.json
+
+
+{
+    "server":"0.0.0.0",
+    "server_ipv6": "[::]",
+    "local_address":"127.0.0.1",
+    "local_port":1081,
+    "port_password":{
+        "80":"Teddy97657585",
+        "443":"Teddy97657585"
+    },
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "protocol": "auth_sha1_v4",
+    "protocol_param": "",
+    "obfs": "http_simple",
+    "obfs_param": "",
+    "redirect": "",
+    "dns_ipv6": false,
+    "fast_open": false,
+    "workers": 1
+}
+
+ls /etc/systemd/system/
+nano /etc/systemd/system/shadowsocksr.service
+
+[Unit]
+Description=ShadowsocksR server
+After=network.target
+Wants=network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/shadowsocksr.pid
+ExecStart=/usr/bin/python /usr/local/shadowsocksr/shadowsocks/server.py --pid-file /var/run/shadowsocksr.pid -c /usr/local/shadowsocksr/user-config.json -d start
+ExecStop=/usr/bin/python /usr/local/shadowsocksr/shadowsocks/server.py --pid-file /var/run/shadowsocksr.pid -c /usr/local/shadowsocksr/user-config.json -d stop
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+systemctl enable shadowsocksr.service && systemctl start shadowsocksr.service
+systemctl stop shadowsocksr.service
+systemctl restart shadowsocksr.service
+journalctl -f -u shadowsocksr.service
+
+Reference: https://github.com/shadowsocksr-backup/shadowsocks-rss

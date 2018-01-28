@@ -47,3 +47,8 @@ chmod +x /opt/adrules_update.sh
 echo "DONE"
 
 --- Updating the Jobs
+
+
+
+---------------Setting up Shadowsocks-------
+
