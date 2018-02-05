@@ -39,7 +39,26 @@ cat //tmp/dnsmasq.conf /etc/dnsmasq.d/ad.conf > /etc/dnsmasq.confrm -rf /tmp/dns
 
 sudo /etc/init.d/dnsmasq restart
 
-sudo /etc/init.d/shadowsocks restartsudo su
+sudo /etc/init.d/shadowsocks restart
+
+
+configure
+edit system package
+set repository squeeze components 'main contrib non-free'
+set repository squeeze distribution squeeze
+set repository squeeze url 'http://http.us.debian.org/debian'
+set repository squeeze-security components main
+set repository squeeze-security distribution squeeze/updates
+set repository squeeze-security url 'http://security.debian.org'
+commit
+save
+exit
+exit
+
+sudo apt-get update
+sudo apt-get install -y wget 
+
+sudo su
 rm -rf /opt/adrules_update.sh
 wget --no-check-certificate -q -O /opt/adrules_update.sh https://raw.githubusercontent.com/tath105/vpnServiceSetup/master/reference/adrules_update.sh
 chmod +x /opt/adrules_update.sh
@@ -47,8 +66,70 @@ chmod +x /opt/adrules_update.sh
 echo "DONE"
 
 --- Updating the Jobs
-
+set service dns forwarding options server=/ad.mi.com/127.0.0.1
+set service dns forwarding options server=/ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/ad1.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/upgrade.mishop.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/logonext.tv.kuyun.com/127.0.0.1
+set service dns forwarding options server=/config.kuyun.com/127.0.0.1
+set service dns forwarding options server=/api.io.mi.com/127.0.0.1
+set service dns forwarding options server=/mishop.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/dvb.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/api.ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/de.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/data.mistat.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/jellyfish.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/gallery.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/o2o.api.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/bss.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/gvod.aiseejapp.atianqi.com/127.0.0.1
+set service dns forwarding options server=/ad.mi.com/127.0.0.1
+set service dns forwarding options server=/ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/ad1.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/sdkconfig.ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/staging.ai.api.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/b.netcheck.gallery.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/stat.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/f1.market.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/f2.market.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/f3.market.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/f4.market.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/f5.market.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/f1.market.mi-img.com/127.0.0.1
+set service dns forwarding options server=/f2.market.mi-img.com/127.0.0.1
+set service dns forwarding options server=/f3.market.mi-img.com/127.0.0.1
+set service dns forwarding options server=/f4.market.mi-img.com/127.0.0.1
+set service dns forwarding options server=/f5.market.mi-img.com/127.0.0.1
+set service dns forwarding options server=/g.dtv.cn.miaozhan.com/127.0.0.1
+set service dns forwarding options server=/new.api.ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/auth.api.gitv.tv/127.0.0.1
+set service dns forwarding options server=/misc.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/tvapi.kuyun.com/127.0.0.1
+set service dns forwarding options server=/tv.aiseet.atianqi.com/127.0.0.1
+set service dns forwarding options server=/vv.play.aiseet.atianqi.com/127.0.0.1
+set service dns forwarding options server=/alog.umeng.com/127.0.0.1
+set service dns forwarding options server=/pandora.mi.com/127.0.0.1
+set service dns forwarding options server=/assistant.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/tracking.miui.com/127.0.0.1
+set service dns forwarding options server=/omgmta.play.aiseet.atianqi.com/127.0.0.1
+set service dns forwarding options server=/starfish.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/misc.in.duokanbox.com/127.0.0.1
+set service dns forwarding options server=/cdn.ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/e.ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/test.ad.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/mishop.cdn.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/box.pandora.xiaomi.com/127.0.0.1
+set service dns forwarding options server=/v.admaster.com.cn/127.0.0.1
+set service dns forwarding options server=/3gimg.qq.com/127.0.0.1
+set service dns forwarding options server=/resolver.msg.xiaomi.net/127.0.0.1
 
 
 ---------------Setting up Shadowsocks-------
 
+mv /usr/local/shadowsocksr/ /tmp/tmp/
+mv /tmp/tmp/ /usr/local/
+
+
+find / -name shadowsocksr -type d
+
+mv /usr/local/tmp/shadowsocksr 
