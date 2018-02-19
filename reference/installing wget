@@ -1,0 +1,12 @@
+sudo /etc/init.d/shadowsocks stop
+configure
+set system package repository wheezy components 'main contrib non-free'
+set system package repository wheezy distribution wheezy 
+set system package repository wheezy url http://http.us.debian.org/debian
+commit
+save
+exit
+
+sudo apt-get update
+sudo apt-get install -y wget 
+sudo /etc/init.d/shadowsocks restart
